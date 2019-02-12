@@ -1,4 +1,4 @@
-package week05;
+package week05Assignment;
 
 import static org.junit.Assert.*;
 

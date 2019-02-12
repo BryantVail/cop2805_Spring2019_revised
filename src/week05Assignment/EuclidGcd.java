@@ -1,7 +1,15 @@
 package week05Assignment;
 
+/**
+ * 
+ * @author Bryant V
+ *
+ */
 public class EuclidGcd {
 	
+	/**
+	 * constructor
+	 */
 	public EuclidGcd() {
 		
 	}
