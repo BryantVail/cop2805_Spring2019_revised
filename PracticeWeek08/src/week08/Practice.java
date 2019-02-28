@@ -17,35 +17,37 @@ public class Practice {
 	}
 }
 
-class Node {
-	public int number;
-	public Node nextNode;
 
-	public Node(int number, Node nextNode) {
-		this.number = number;
-		this.nextNode = nextNode;
-	}
 
-	public int getSumIterative() {
-		int sum = 0;
-		Node currentNode = this;
-		while (currentNode != null) {
-			sum += currentNode.number;
-			currentNode = currentNode.nextNode;
-		}
-		return sum;
-	}
-	
-	public int getSum(Node nextNode) {
-		Node current = nextNode;
-		
-		if(current.nextNode == null) {
-			return this.number;
-		}
-		else {
-			return this.number += current.getSum(current.nextNode);
-		}
-	}
-}
+//class Node {
+//	public int number;
+//	public Node nextNode;
+//
+//	public Node(int number, Node nextNode) {
+//		this.number = number;
+//		this.nextNode = nextNode;
+//	}
+//
+//	public int getSumIterative() {
+//		int sum = 0;
+//		Node currentNode = this;
+//		while (currentNode != null) {
+//			sum += currentNode.number;
+//			currentNode = currentNode.nextNode;
+//		}
+//		return sum;
+//	}
+//	
+//	public int getSum(Node nextNode) {
+//		Node current = nextNode;
+//		
+//		if(current.nextNode == null) {
+//			return this.number;
+//		}
+//		else {
+//			return this.number += current.getSum(current.nextNode);
+//		}
+//	}
+//}
 
 
