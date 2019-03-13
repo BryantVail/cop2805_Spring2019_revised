@@ -35,7 +35,7 @@ public interface MyList<T> extends Collection<T> {
 	public T remove(int index);
 	
 	//+set(int index, T t): T
-	public T set(int index);
+	public T set(int index, T t);
 	
 	//add(T t): boolean
 	@Override
@@ -61,8 +61,7 @@ public interface MyList<T> extends Collection<T> {
 		}
 	}//end remove(Object t)
 	
-	//+set(int index, T t): T
-	public T set(int index, T t);
+	
 	
 	//@Override containsAll(Collection<?> c)
 	@Override
@@ -101,48 +100,6 @@ public interface MyList<T> extends Collection<T> {
 		return null;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	 * 
-	 * before is below
-	 */
-	
-	public static void doubleArrayCapacity(Object[] list2) {
-		// TODO Auto-generated method stub
-		int newLength = list2.length *2;
-		Object[] 
-	}
-
-	public static void MyList.doubleArrayCapacity(Object[] list2);
-
-	private T[] grow(T[] array) {
-		
-	}
-	
 	//+clear(): 		void
 	public default void clear() {
 		
@@ -150,6 +107,8 @@ public interface MyList<T> extends Collection<T> {
 			remove(i);
 		}
 	}
+
+	
 
 	
 	
