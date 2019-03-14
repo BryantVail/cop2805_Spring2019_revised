@@ -1,0 +1,22 @@
+hashMap
+	keyValue Pairs
+baseball
+	key: team
+	value: object
+
+HashMap<K,V>
+[
+	0,
+	1,
+	2(key)
+
+
+1) Get the "Hash" Value 
+	(integer) of the key (any dataType)
+
+2) Get Index from  the hash (which is an integer)
+
+3) Collision
+	search for a new cell
+
+
