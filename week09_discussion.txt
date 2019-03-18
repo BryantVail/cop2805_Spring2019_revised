@@ -1,0 +1,24 @@
+chapter 27
+- - - - - -
+hashing
+	
+
+Discussion:
+lost 200 ballots in Humboldt County during the US presidential election
+	"Clear" button
+	permenantly erase logs	
+		"contain, or should contain, records that would be essential to reconstruct operator actions during the vote tallying process".
+	UI/UX
+		proximity to print & saveAs buttons
+	
+Separation of Logic & User Interface
+	Application Logic
+	Appropriate User Interaction
+Unintended Consequences are the Responsibility of the Developer
+
+	Software Developers have the responsibility to not only put together objects and functions that can accomplish the manipulation or display of data, but to govern the appropriate behaviors of the data- both by explicit permissions that users may have, along with interface design that may leave a likelyhood of mis-use. 
+	When it comes to creating functions that meet the need of the client- such as the case for the Government Voting Machines- some features like "clear" or "remove logs", while common in many instances of software systems, may not be appropriate for each software implementation. In this case of the voting software, it may be very innapropriate to delete ANY data regardless of whether that data would be part of any printed report or voting tally. In a legal circumstance as this, transparency can carry a lot of weight for the client & can even cost them the value of the project itself if people are not trusting the voting systems. In this case, no logs should have the chance to be deleted considering the high bar for transparency & possible need for auditing depending on what bugs or unexpected user interaction there might be. 
+	On top of the baked in functionality, is the responsibility of the creator to devise an interface that promotes proper use of the system; neglegent placement of certain controls- as the "clear" button was in close proximity to the 'saveAs' and 'print' buttons- is a burden that must be taken seriously when the user experience is being planned & implemented. There are even an abundace of tools today to record user movement within an application to determine where users may be confused, errantly navigating during an already initiated user process, showing the common mindset within the developer community that acknowledges the significance of unforseen or unaccounted actions by the user that were facilitated ultimately by an interface that was not intuitive to a level that facilitates predictable and understandable input by the user. 
+	This story puts in perspective how overlooking a detail as this can make a big negative impact on the project's effectiveness to carry out the objective. Attention to detail is qualified here by showing it matters which details are being thought about & how they are being implemented to provide a complete user system. 
+
+
