@@ -1,0 +1,132 @@
+scroll bars
+
+	deadlines
+	different peiple doing different parts
+	deadline
+	send it out
+
+
+------------------------------
+6:49 PM 3/20/2019
+
+public int stackCounter(Node root) {
+		int result = 0;
+		
+		Stack<Node> stack= new Stack<>();
+		stack.push(root);
+		
+		//while Stack is NOT empty, evaluate the Stack
+		while(!stack.isEmpty()) {
+			Node node = stack.pop();
+			result++;
+			for(Node child : stack) {
+				stack.push(child);
+			}
+		}
+		return result;
+}//end stack counter
+
+----------------------------
+7:14 PM 3/20/2019
+
+using graphs
+
+edges:
+	Entity
+vertices
+	Connecting Lines
+
+Seven Bridges of Konigsberg
+	Graph Terminology
+
+
+Graph: 
+	G=(V, E)
+	Directed Graph
+	Undirected:
+		no qualifier
+	Cost: 
+		Time
+			Fastest Arrival Time
+		Money
+			Cheapest Combination of Flight(s)
+	Adjacent Vertices
+		next to each other
+	Incident
+	Degree
+		How many edges go into the vertex
+		Study
+	Neighbor
+	Loop
+		Closed circuit of Edges & their Vertices
+
+	simpleGraph:
+		noLoops
+	Parallel Edge
+		
+
+	Representing Graphs: {
+		Nodes: 
+			children associated with the Node can touch other nodes to make a loop
+			Loops are permitted
+		representing edges
+		int[][] edges = {{0,1},{0,3}, {0,5}, {1,0}, 
+	}//end Representing Graphs
+
+Sparse Matrix: 
+	matrix with a lot of zeros,
+	Look for another way to represent a sparse matrix
+
+
+Graph Traversal
+	Depth First (DFS)
+		all children examined first
+	Breadth First (BFS)
+		layers
+		one level at a time
+		check all children
+			>check another node's children
+				>loop(no double checks) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
