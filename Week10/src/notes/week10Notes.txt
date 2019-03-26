@@ -74,7 +74,7 @@ Graph:
 	}//end Representing Graphs
 
 Sparse Matrix: {
-	matrix with a lot of zeros,
+	matrix with a lot of zeros
 	Look for another way to represent a sparse matrix
 }
 

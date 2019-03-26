@@ -4,8 +4,13 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
+/**
+ * Bryant Vail
+ */
+
 public class MyHashMapLinear<K, V> implements MyMap<K, V> {
 	
+	private static final int MAXIMUM_CAPACITY = 0;
 	private int capacity;
 	private float loadFactor;
 	private static int DEFAULT_CAPACITY  = 4;
@@ -36,9 +41,10 @@ public class MyHashMapLinear<K, V> implements MyMap<K, V> {
 		
 	}
 	
+	//hashCode
 	@Override
 	public int hashCode(K key) {
-		return key % this.size;
+		return key.hashCode() % this.size;
 	}
 	
 
@@ -81,7 +87,7 @@ public class MyHashMapLinear<K, V> implements MyMap<K, V> {
 	@Override
 	public V get(K key) {
 		// linear probing
-		int bucketIndex = hash(key.hashCode());
+		int bucketIndex = key.hashCode();
 		
 		if(this.table[bucketIndex] != null) {
 			LinkedList<Entry<K, V>> bucket = this.table[bucketIndex];
@@ -117,26 +123,37 @@ public class MyHashMapLinear<K, V> implements MyMap<K, V> {
 
 	@Override
 	public V put(K key, V value) {
-		// 
+		// the value from 'key' "index" in the HashMap
+		// is NOT null, then 
+		//		
 		if(get(key) != null) {
-			int bucketIndex = hash(key.hashCode());
+			int bucketIndex = key.hashCode();
 			LinkedList<Entry<K, V>> bucket = table[bucketIndex];
 			for(Entry<K, V> entry : bucket) {
 				if(entry.getKey().equals(key)) {
-					V oldValue  = entry.getValue();
+					bucket = table[bucketIndex + 1];
+					//while table[currentIndex] has value, 
+					//	increment the index until its null, 
+					//		insert item into clear cell.
+					while(table[bucketIndex] != null) {
+						bucketIndex++;
+					}
 					entry.value = value;
-					return oldValue;
+					return value;
+//					V oldValue  = entry.getValue();
+//					entry.value = value;
+//					return oldValue;
 				}
 			}
 		}//
 		
 		if(this.size >= capacity * this.loadFactor) {
-			if(capacity == MAXIMUM_CAPACITY) {
+			if(capacity == this.MAXIMUM_CAPACITY) {
 				throw new RuntimeException("Exceeding maximum capacity");
 			}
 		}
 		
-		int bucketIndex = hash(key.hashCode());
+		int bucketIndex = key.hashCode();
 		
 		if(table[bucketIndex]  == null) {
 			table[bucketIndex] = new LinkedList<Entry<K, V>>();
@@ -152,7 +169,7 @@ public class MyHashMapLinear<K, V> implements MyMap<K, V> {
 	@Override
 	public void remove(K key) {
 		// 
-		int bucketIndex = hash(key.hashCode());
+		int bucketIndex = key.hashCode();
 		
 		if(table[bucketIndex] != null) {
 			LinkedList<Entry<K, V>> bucket = table[bucketIndex];
@@ -166,11 +183,17 @@ public class MyHashMapLinear<K, V> implements MyMap<K, V> {
 		}
 	}
 
-	private int hash(int hashCode) {
-		// 
-		return supplementalhash(hashCode) & (this.capacity -1);
-		
-	}
+//	private int hash(int hashCode) {
+//		// 
+//		return supplementalhash(hashCode) & (this.capacity -1);
+//		
+//	}
+
+//	private int supplementalhash(int hashCode) {
+//		// 
+//		
+//		return 0;
+//	}
 
 	@Override
 	public int size() {

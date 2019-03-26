@@ -73,4 +73,6 @@ interface MyMap<K, V>
 			return "[" + key + ", " + value + "]";
 		}
 	}
+
+	int hashCode(K key);
 }

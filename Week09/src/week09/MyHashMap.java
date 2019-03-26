@@ -2,7 +2,13 @@ package week09;
 
 import java.util.LinkedList;
 
-public class MyHashMap<K, V> implements MyMap<K, V>
+/**
+ * Bryant Vail
+ * 
+ * downloaded
+ */
+
+public abstract class MyHashMap<K, V> implements MyMap<K, V>
 {
 	/** Construct a map with the default capacity and load factor */
 	public MyHashMap()
