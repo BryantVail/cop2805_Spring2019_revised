@@ -7,6 +7,12 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author bryant vail
+ *
+ */
+
 public class MyServer {
 
 	public static void main(String[] args)  throws IOException {
@@ -14,7 +20,7 @@ public class MyServer {
 		
 		int port = 8000;
 //		String host = "localHost";
-		DataInputStream in;
+		DataInputStream in = null;
 		DataOutputStream out;
 		ServerSocket server = null;
 		Socket socket;
@@ -23,15 +29,17 @@ public class MyServer {
 		
 		System.out.println("Please enter your Radius: ...");
 		
+		
 		//wait for new socket
 		socket = server.accept();
+		in = new DataInputStream(socket.getInputStream());
 		
 		//loop until "end chat" is read
-		boolean keepChatting = true;
-		while(keepChatting) {
-			in = new DataInputStream(socket.getInputStream());
-			
-		}
+//		boolean keepChatting = true;
+//		while(keepChatting) {
+//			
+//			
+//		}
 		
 		
 		out = new DataOutputStream(socket.getOutputStream());

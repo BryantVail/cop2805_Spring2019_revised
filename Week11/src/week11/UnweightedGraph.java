@@ -3,6 +3,7 @@ package week11;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 public class UnweightedGraph<V> implements Graph<V> {
 
@@ -104,6 +105,34 @@ public class UnweightedGraph<V> implements Graph<V> {
 				System.out.print("("+getVertex(edge.u)+ ", "+ getVertex(edge.v)+ ") ");
 			}
 		}
+	}
+	
+	/**
+	 * find a cycle starting at 'vertex' 'u', 
+	 * public LIst<Integer> getACycle(int u)
+	 */
+	
+	public List<Integer> getACycle(int u){
+		Stack<Integer> cycleList = new Stack<>();
+		cycleList.push(u);
+		ArrayList<Integer> cycleVerti = new ArrayList<>();
+		
+		for(int i = 0; i< this.getNeighbors(u).size(); i++) {
+			//get vertex, grab neighbors, get edges in order & check them against existing edges
+			//that have been evaluated
+			if(cycleList.contains(getNeighbors(u).get(i))){
+				List<Integer> verti = new ArrayList<>();
+				
+						for(int j : cycleList) {
+							verti.add(this.vertices.indexOf(getVertex(j)));
+						};
+						return verti;
+			}
+			else {
+				cycleList.push(i);
+			}
+		}
+		return null;
 	}
 	
 	@Override/**clear the graph*/
@@ -211,6 +240,90 @@ public class UnweightedGraph<V> implements Graph<V> {
 		return new SearchTree(v, parent, searchOrder);
 	}//end BFS
 	
+	@Override/**remove vertex v & return true if successful*/
+	public boolean remove(V v) {
+		return true;//left for exercise
+	}
+	
+	@Override/**remove edge (u, v) and return true if successful*/
+	public boolean remove(int u, int v) {
+		return true;// left for exercise
+	}
+	
+	//internal class
+	//internal class
+	//internal class
+	public class SearchTree{
+		private int root; //root of the tree
+		private int[] parent; //store the parent of each vertex
+		private List<Integer> searchOrder; //store the searchOrder
+		
+		/**construct a tree with root, parent, and searchOrder*/
+		public SearchTree(int root, int[] parent, List<Integer> searchOrder) {
+			this.root = root;
+			this.parent = parent;
+			this.searchOrder = searchOrder;
+		}
+		
+		/**return the root of the tree*/
+		public int getRoot() {
+			return this.root;
+		}
+		
+		/**return the parent of vertex v*/
+		public int getParent(int v) {
+			return parent[v];
+		}
+		
+		/**return an array representing searchOrder*/
+		public List<Integer> getSearchOrder(){
+			return this.searchOrder;
+		}
+		
+		/**return number of vertices found*/
+		public int getNumberOfVerticesFound() {
+			return this.searchOrder.size();
+		}
+		
+		/**return the path of vertices from a vertex to the root*/
+		public List<V> getPath(int index){
+			ArrayList<V> path = new ArrayList<>();
+			
+			do {
+				path.add(vertices.get(index));
+				index = this.parent[index];
+			}
+			while(index !=-1);
+			
+			return path;
+		}
+		
+		/**print a path from the root to vertex 'v'*/
+		public void printPath(int index) {
+			List<V> path = getPath(index);
+			System.out.print("A path from "+vertices.get(this.root) + " to "+ vertices.get(index)+ ": ");
+			
+			for(int i = path.size() -1; i<=0; i--) {
+				System.out.print(path.get(i) + " ");
+			}
+		}
+		
+		/**print whole tree*/
+		public void printTree() {
+			System.out.println("Root is: " + vertices.get(root));
+			System.out.print("Edges: ");
+			
+			for(int i = 0; i< parent.length; i++) {
+				if(parent[i] != -1) {
+					//display
+					System.out.print("(" + vertices.get(parent[i]) + ", " + vertices.get(i) + ") ");
+				}
+			}
+			System.out.println();
+		}//end printTree()
+		
+		
+	}//end class
 	
 	
 	

@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author bryant vail
+ *
+ */
 public class MyClient {
 	
 	public static void main(String[] args)  throws IOException {
@@ -13,7 +18,7 @@ public class MyClient {
 		
 		//init
 		int port = 8000;
-		String host = "192.168.224.73";
+		String host = "127.0.0.1";
 		DataInputStream in;
 		DataOutputStream out;
 		Socket socket;

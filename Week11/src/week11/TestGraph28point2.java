@@ -32,9 +32,10 @@ public class TestGraph28point2 {
 		
 		Graph<String> graph1 = new UnweightedGraph<>(vertices, edges);
 		System.out.println("The number of vertices in graph1: "+ graph1.getSize());
-		System.out.println("The vertex with index 1 is: "+ graph1.get(1));
+		System.out.println("The vertex with index 1 is: "+ (graph1).getVertex(1));
 		System.out.println("The index for Miami is: "+ graph1.getIndex("Miami"));
-		System.out.println("The Edges for graph1: "+graph1.printEdges());
+		System.out.print("The Edges for graph1: ");
+			graph1.printEdges();
 		
 		//List of Edge objects for graph in Figure 28.3a
 		String[] names = {"Peter", "Jane", "Mark", "Cindy", "Wendy"};
@@ -45,12 +46,18 @@ public class TestGraph28point2 {
 			edgeList.add(new Edge(1,2));
 			edgeList.add(new Edge(2,4));
 			edgeList.add(new Edge(3,4));
+			edgeList.add(new Edge(3,2));
+			edgeList.add(new Edge(3,1));
+			edgeList.add(new Edge(3,3));
+			
+			
 			
 		//create graph w/5 vertices
-		Graph<String> graph2 = new UnweigtedGraph<>(Arrays.asList(names), edgeList);
+		UnweightedGraph<String> graph2 = new UnweightedGraph<>(Arrays.asList(names), edgeList);
 		
 		System.out.println("\nThe Number of Vertices in graph2: " + graph2.getSize());
 		System.out.println("The edges for graph2: ");
+		System.out.println("Cycle Test: " + graph2.getACycle(3));
 		graph2.printEdges();
 
 	}
