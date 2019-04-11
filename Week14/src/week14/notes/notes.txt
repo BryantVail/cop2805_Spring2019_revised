@@ -1,0 +1,74 @@
+
+
+select distinct customerID from orders
+order by customerID desc;
+
+select * from products where 
+	categoryId = 1 and QuantityOnHand < 20;
+    
+select distinct
+	c.CustomerID,
+    concat(c.CustLastName, ' ', c.CustFirstName) as CustomerName,
+    c.CustCity
+from 
+	orders
+    join customers c
+		on customers.CustomerID = orders.CustomerID
+	Where 
+		orders.OrderDate between '2012-12-17' and'2012-12-24'
+	;
+    
+    #
+    #outer join
+    select distinct
+	c.CustomerID,
+    concat(c.CustLastName, ' ', c.CustFirstName) as CustomerName,
+    c.CustCity,
+    o.orderNumber
+from 
+	orders
+    right join customers c
+		on customers.CustomerID = orders.CustomerID
+	Where 
+		orders.OrderDate between '2012-12-17' and'2012-12-24'
+	;
+    
+    select * 
+		from customers 
+        where 
+			not exists(select * from orders where o.customerId = c.customerId)
+	;
+    
+    select
+		*
+        from 
+			products p
+            join order_details od
+				on od.ProductNumber = p.productNumber
+		Where
+			productName = 'turbo twin tires'
+	;
+    
+    select * from order_details; 
+    select * from categories; 
+    select * from products; 
+    
+    select c.categoryDescription as Category,
+    sum(od.QuantityOrderd * od.quotedPrice) as TotalSales
+		from
+		order_details od
+			join products p 
+				on p.productNumber = od.productNumber 
+			join categories c 
+				on c.categoryId = p.categoryId
+		group by
+			c.categoryDescription
+	;
+    
+    
+            
+            
+            
+
+
+
